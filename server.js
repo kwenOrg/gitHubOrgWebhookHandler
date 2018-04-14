@@ -1,17 +1,26 @@
+//// notify-on-delete
+///  app.js
+///  creates a new Github issue when a notification comes in @ a deleted repo
+
+//webserver package
 const express = require('express')
+//express middleware
 const bodyParser = require('body-parser')
+
 const issue = require('./issue.js')
 
 var app = express();
-var jsonParser = bodyParser.json();
 
+var jsonParser = bodyParser.json();
 app.use(bodyParser.json({ type: 'application/*+json' }));
-//app.use(function(err, req, res, next));
+
 
 app.get('/', (request, response) => {
     response.send('<h2>notify on delete webserver</h2>');
 });//end get
 
+//looks at request coming in which could be for a repo being created/deleted/archived/made public/made private
+//Only the deletion of a repo will trigger a ticket
 var evalRequest = (request) => {
 //    var issueStatus = request.body.action;
     console.log('Notified for event of ===>', request.body.action);
@@ -23,9 +32,8 @@ var evalRequest = (request) => {
 
 };//end evalRequest
 
+//respond to POST from github webhook and evaluate if it is a deletion event
 app.post('/payload', jsonParser, (request, response) => {
-    //console.log('REQUEST DATA FORMAT', typeof request);
-    //console.log(request.body);
     response.send('Payload received');
     var eval = evalRequest(request); 
     
