@@ -1,9 +1,13 @@
 /** Opens a Github issue with data provided by the webhook POST request  */
 const octokit = require ('@octokit/rest')()
+const dotenv = require('dotenv').config()
+if (dotenv.error) {
+    throw dotenv.error
+  }
 
 octokit.authenticate({
     type: 'token',
-    token: '837b7d8063aabf2dcd9935b9efdea009fb972af9'
+    token: process.env.GIT_TOKEN
 })
 
 //async function open(repoName, orgName, userName){
@@ -24,6 +28,7 @@ var open = (repoName, orgName, userName) => {
         (error, results) => {
           if(error){
               console.log('Error on issue creation ===> ', error)
+              process.exit(1);
           }
           else{
               console.log('Issue creation results ===>', results)
@@ -31,7 +36,6 @@ var open = (repoName, orgName, userName) => {
       }); //end newIssue
 
 }; //end open
-
 
 module.exports = {
     open

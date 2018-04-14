@@ -5,8 +5,6 @@ const issue = require('./issue.js')
 var app = express();
 var jsonParser = bodyParser.json();
 
-var issueStatus
-
 app.use(bodyParser.json({ type: 'application/*+json' }));
 //app.use(function(err, req, res, next));
 
@@ -15,8 +13,8 @@ app.get('/', (request, response) => {
 });//end get
 
 var evalRequest = (request) => {
-    issueStatus = request.body.action;
-    console.log('Notified for:', issueStatus);
+//    var issueStatus = request.body.action;
+    console.log('Notified for event of ===>', request.body.action);
 
     //we are only taking action if the notification we receive is for a deleted action
     if (request.body.action === "deleted"){
@@ -24,7 +22,6 @@ var evalRequest = (request) => {
     }
 
 };//end evalRequest
-
 
 app.post('/payload', jsonParser, (request, response) => {
     //console.log('REQUEST DATA FORMAT', typeof request);
