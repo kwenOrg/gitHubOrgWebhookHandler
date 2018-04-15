@@ -3,7 +3,7 @@
 ## About:
 A webservice that evaluates and responds to Github Organization Webhook Events.
 
-### Current functionality:
+### Current functionality
 When a Repository is deleted, a new Issue is opened to track the deletion.  The Issue is assigned and tagged for the local GitHub administration team to then act upon.
 
 This program could be extended in the future to respond to any Organizational Webhook Event.
