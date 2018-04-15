@@ -14,7 +14,7 @@ When starting up the service, parameters are required for the names of the Organ
 ## Webhook Configuration
 To use this service, an Organization Webhook for Repository Events needs to be configured.
 
-* In the GitHub Web UI, select the organization that you want to monitor.  When in the organization view select the "Settings" tab on the top right
+* In the GitHub Web UI, select the organization that you want to monitor.  In the organization view select the "Settings" tab on the top right  (note that individiual Repositories also have settings and webhooks, ensure you are at the Organization level)
 
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/orgsettings.png)
 
@@ -24,8 +24,7 @@ To use this service, an Organization Webhook for Repository Events needs to be c
 
     Enter the following configurations:
 
-    * Payload URL: <serverURL>/payload
-    ex using ngrok:  http://deb9b33f.ngrok.io/payload
+    * Payload URL: http://yourPublicWebServerURL/payload
 
     * Content Type:  application/json
 
@@ -33,10 +32,11 @@ To use this service, an Organization Webhook for Repository Events needs to be c
 
     * Which events would you like to trigger this webhook? :  Let me select individual events
 
-    * In the list of events select "Repositories, created, deleted, archived, unarchived, publicized or privitized
+    * In the list of events select "Repositories: created, deleted, archived, unarchived, publicized or privitized
 
     * Check the box for "Active"
-    * Click green "Update webhook"
+    
+    * Click green "Update webhook" button to save changes
 
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/confWebhook.png)
 
@@ -45,6 +45,7 @@ To use this service, an Organization Webhook for Repository Events needs to be c
 
 ## Module Configuration:
 * Clone this repository locally on a Linux or MacOS system.
+
 * Ensure that node.js and npm are installed on the machine by running *node -v* and *npm -v* on the commandline.
     * This app was tested on node v9.11.1 and npm v5.8.0
     * NPM is a package manager which is distributed with node.js.   If you are missing one or either, go to:
@@ -54,15 +55,17 @@ To use this service, an Organization Webhook for Repository Events needs to be c
 
 ### GitHub token
 * For API authorization a Github token needs to be generated for an authorized user. 
+Go to https://github.com/settings/tokens to see/create tokens.
     * Create a token with full permissions for admin:org, admin:org_hook, admin:repo_hook, admin:repo
 
-https://github.com/settings/tokens
+
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/token.png)
 
 
 * This module uses express middleware which will upload your token to be used as authorization by the Octokit API.
-    * In the main gitHubOrgWebhookHandler directory create a file name "*.env"
-    * Enter in your token in the file in the following syntax:
+   * After cloning down this repo, in the main gitHubOrgWebhookHandler directory create a file name "*.env"
+   
+   * Enter in your token in the file in the following syntax:
     GIT_TOKEN=tokenstring
 
 ### Server
@@ -76,8 +79,8 @@ Requires all configurations above to be completed before running.
 
 *node server.js -r "repo where Issues will be generated" -o "organization being monitored"*
 
-ex:
-node server.js -r automatedIssues -o kwenOrg
+    ex:
+    node server.js -r automatedIssues -o kwenOrg
 
 
 ## Resources used in developing this module:
