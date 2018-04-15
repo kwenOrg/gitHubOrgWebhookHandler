@@ -18,14 +18,11 @@ To use this service, an Organization Webhook for Repository Events needs to be c
 
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/orgsettings.png)
 
-On the left "Organizational Settings" panel select "Webhooks"
+* On the left "Organizational Settings" panel select "Webhooks"
 
-![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/confWebhook.png)
+* Click the "Add webhook" button on the upper right corner.
 
-
-Click the "Add webhook" button on the upper right corner.
-
-Enter the following configurations:
+    Enter the following configurations:
 
     * Payload URL: <serverURL>/payload
     ex using ngrok:  http://deb9b33f.ngrok.io/payload
@@ -36,27 +33,32 @@ Enter the following configurations:
 
     * Which events would you like to trigger this webhook? :  Let me select individual events
 
-    * In the list of events select "Repositories, created deleted, archived, unarchived, publicized or privitized
+    * In the list of events select "Repositories, created, deleted, archived, unarchived, publicized or privitized
 
     * Check the box for "Active"
     * Click green "Update webhook"
+
+![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/confWebhook.png)
 
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/confwebhook2.png)
 
 
 ## Module Configuration:
 * Clone this repository locally on a Linux or MacOS system.
-* Ensure that node.js and npm are installed on the machine by running "node -v" and "npm -v".   
+* Ensure that node.js and npm are installed on the machine by running *node -v* and *npm -v* on the commandline.
     * This app was tested on node v9.11.1 and npm v5.8.0
     * NPM is a package manager which is distributed with node.js.   If you are missing one or either, go to:
     https://nodejs.org/en/download/np
 
-* After cloning and checking for versions, run "npm init" in the same directory as the package.json to bring in required dependencies
+* After confirming versions, run *npm install* on the commandline in the same directory as the package.json.  This will bring in all required node dependencies.
 
 ### GitHub token
-* For API authorization a Github token needs to be generated for an authorized user.   
+* For API authorization a Github token needs to be generated for an authorized user. 
+    * Create a token with full permissions for admin:org, admin:org_hook, admin:repo_hook, admin:repo
+
 https://github.com/settings/tokens
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/token.png)
+
 
 * This module uses express middleware which will upload your token to be used as authorization by the Octokit API.
     * In the main gitHubOrgWebhookHandler directory create a file name "*.env"
