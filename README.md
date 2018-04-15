@@ -1,4 +1,4 @@
-# githubOrgWebhookHandler
+# gitHubOrgWebhookHandler
 
 ## About:
 A webservice that evaluates and responds to Github Organization Webhook Events.
