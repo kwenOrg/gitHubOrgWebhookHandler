@@ -36,7 +36,7 @@ var openDeleteIssue = (request, issuesRepo, org) => {
             process.exit(1);
           }
           else{
-            console.log(`New issue`, results.number, `has been generated in repository`, issuesRepo);
+            console.log(`New issue has been generated in repository`, issuesRepo);
           }
       }); //end newIssue
 }; //end open

@@ -51,7 +51,7 @@ var evalRequest = (request) => {
     
         //we are taking action if the notification we receive is for a deleted repo
         if (request.body.action === "deleted"){
-      //    issue.openDeleteIssue(request, argv.repo, argv.org);
+          issue.openDeleteIssue(request, argv.repo, argv.org);
         }   
     }
     else{
