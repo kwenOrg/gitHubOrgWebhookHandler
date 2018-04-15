@@ -75,7 +75,8 @@ This module uses node express and runs on port 3000 by default.
 * For local testing of this app use ngrok to forward to a temporary public URL that can then be configured in your webhook under "Payload URL".   
 https://ngrok.com/download
 
-*$ ngrok http 3000*
+*ngrok http 3000*
+
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/ngrok.png)
 
 ## Usage:
