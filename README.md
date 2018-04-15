@@ -8,7 +8,7 @@ When a Repository is deleted, a new Issue is opened to track the deletion.  The 
 
 This program could be extended in the future to respond to any Organizational Webhook Event.
 
-When starting up the service parameters are required for the names of the Organziation and Repository where the new Issues will be created.
+When starting up the service, parameters are required for the names of the Organziation and Repository where the new Issues will be created.
 
 
 ## Webhook Configuration
