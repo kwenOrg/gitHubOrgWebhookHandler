@@ -2,7 +2,6 @@
 /// issue.js
 /// calls to to the Github API for issues
 
-/** Opens a Github issue with data provided by the webhook POST request  */
 //github rest API for node
 const octokit = require ('@octokit/rest')()
 
