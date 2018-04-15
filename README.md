@@ -54,22 +54,23 @@ To use this service, an Organization Webhook for Repository Events needs to be c
 * After confirming versions, run *npm install* on the commandline in the main directory that contains package.json.  This will bring in all required node dependencies.
 
 ### GitHub token
-* For API authorization a Github token needs to be generated for an organization admin-authorized user. 
+For API authorization a Github token needs to be generated for an organization admin-authorized user. 
 Go to https://github.com/settings/tokens to see/create tokens.
-    * Create a token with full permissions for admin:org, admin:org_hook, admin:repo_hook, admin:repo
+    
+* Create a token with full permissions for admin:org, admin:org_hook, admin:repo_hook, admin:repo
 
 
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/token.png)
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/edittoken.png)
 
-* This module uses express middleware which will upload your token to be used as authorization by the Octokit API.
+This module uses express middleware which will upload your token to be used as authorization by the Octokit API.
    * After cloning down this repo, in the main directory that contains the .js files, create a new file named *.env*
    
    * Enter in your token in the .env file in the following syntax:
     GIT_TOKEN=tokenstring
 
 ### Server
-* This module uses node express and runs on port 3000 by default.
+This module uses node express and runs on port 3000 by default.
 
 * For local testing of this app use ngrok to forward to a temporary public URL that can then be configured in your webhook under "Payload URL".
 
