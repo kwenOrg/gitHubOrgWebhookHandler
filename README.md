@@ -86,7 +86,11 @@ Requires all configurations above to be completed before running.
 
 ## Resources used in developing this module:
 https://developer.github.com/webhooks/#events
+
 https://developer.github.com/v3/activity/events/types/#repositoryevent
+
 https://octokit.github.io/rest.js
+
 https://github.com/octokit/rest.js/tree/master/examples
+
 https://developer.github.com/webhooks/creating/
