@@ -60,12 +60,12 @@ Go to https://github.com/settings/tokens to see/create tokens.
 
 
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/token.png)
-
+![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/edittoken.png)
 
 * This module uses express middleware which will upload your token to be used as authorization by the Octokit API.
-   * After cloning down this repo, in the main directory that contains the .js files, create a new file named "*.env"
+   * After cloning down this repo, in the main directory that contains the .js files, create a new file named *.env*
    
-   * Enter in your token in the file in the following syntax:
+   * Enter in your token in the .env file in the following syntax:
     GIT_TOKEN=tokenstring
 
 ### Server
