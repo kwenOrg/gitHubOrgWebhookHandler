@@ -14,7 +14,7 @@ When starting up the service, parameters are required for the names of the Organ
 ## Webhook Configuration
 To use this service, an Organization Webhook for Repository Events needs to be configured.
 
-* In the GitHub Web UI to to the organization that you want to monitor and select the "Settings" tab
+* In the GitHub Web UI, select the organization that you want to monitor.  When in the organization view select the "Settings" tab on the top right
 
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/orgsettings.png)
 
