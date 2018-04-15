@@ -54,7 +54,7 @@ To use this service, an Organization Webhook for Repository Events needs to be c
 * After confirming versions, run *npm install* on the commandline in the main directory that contains package.json.  This will bring in all required node dependencies.
 
 ### GitHub token
-* For API authorization a Github token needs to be generated for an authorized user. 
+* For API authorization a Github token needs to be generated for an organization admin-authorized user. 
 Go to https://github.com/settings/tokens to see/create tokens.
     * Create a token with full permissions for admin:org, admin:org_hook, admin:repo_hook, admin:repo
 
@@ -71,7 +71,8 @@ Go to https://github.com/settings/tokens to see/create tokens.
 ### Server
 * This module uses node express and runs on port 3000 by default.
 
-* For local testing of this app use ngrok to forward to a temporary public URL that can then be configured in your webhook.
+* For local testing of this app use ngrok to forward to a temporary public URL that can then be configured in your webhook under "Payload URL".
+
 ![alt text](https://github.com/kwenOrg/gitHubOrgWebhookHandler/blob/master/img/ngrok.png)
 
 ## Usage:
