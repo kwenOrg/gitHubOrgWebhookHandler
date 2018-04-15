@@ -1,0 +1,27 @@
+{
+  "name": "githuborgwebhookhandler",
+  "version": "1.0.0",
+  "description": "About:",
+  "main": "issue.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwenOrg/gitHubOrgWebhookHandler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kwenOrg/gitHubOrgWebhookHandler/issues"
+  },
+  "homepage": "https://github.com/kwenOrg/gitHubOrgWebhookHandler#readme",
+  "dependencies": {
+    "@octokit/rest": "^15.2.6",
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "yargs": "^11.0.0"
+  }
+}

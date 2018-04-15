@@ -1,6 +1,6 @@
-/// notify-on-delete
+/// githubOrgWebhookHandler
 /// issue.js
-/// creates a new Github issue when a notification comes in @ a deleted repo
+/// calls to to the Github API for issues
 
 /** Opens a Github issue with data provided by the webhook POST request  */
 //github rest API for node
@@ -18,30 +18,29 @@ octokit.authenticate({
     token: process.env.GIT_TOKEN
 })
 
-//function to open a new issue in kwenOrg/notify-on-delete repo if any other repo in the org is deleted
-var open = (repoName, orgName, userName) => {
+//function to open a new issue when a repository is deleted
+var openDeleteIssue = (request, issuesRepo, org) => {
     
       //call the create issues API, it will either return an error or resulting info from new ticket
       const newIssue = octokit.issues.create({
-             owner: 'kwenOrg',
-             repo: 'notify-on-delete',
-             title: `${repoName} has been deleted`,
-             body: `This is an auto-generated ticket to track the deletion of repository ${repoName} by user ${userName}.  @kkwentus Please review`,
-             assignee: 'kkwentus',
-             labels: ['admin review']
+            owner: `${org}`,
+            repo: `${issuesRepo}`,
+            title: `${request.body.repository.full_name} has been deleted`,
+            body: `This is an auto-generated ticket to track the deletion of repository ${request.body.repository.full_name} by user ${request.body.sender.login}.  @kkwentus Please review`,
+            assignee: 'kkwentus',
+            labels: ['admin review']
       },
         (error, results) => {
           if(error){
-              console.log('Error on issue creation ===> ', error)
-              process.exit(1);
+            console.log('Error on issue creation ===> ', error)
+            process.exit(1);
           }
           else{
-              console.log(`New issue has been generated`)
+            console.log(`New issue`, results.number, `has been generated in repository`, issuesRepo);
           }
       }); //end newIssue
-
 }; //end open
 
 module.exports = {
-    open
+    openDeleteIssue
 };
