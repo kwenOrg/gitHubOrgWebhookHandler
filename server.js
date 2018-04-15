@@ -41,8 +41,8 @@ app.get('/', (request, response) => {
   response.send('<h2>Github webhook handler</h2>');
 });//end get
 
-//looks at request coming in which could be for a repo being created/deleted/archived/made public/made private
-//Only the deletion of a repo will trigger a ticket
+//looks at request coming in which could be for any type of webhook event
+//Only the deletion of a repo will trigger an Issue creation
 var evalRequest = (request) => {
     if (request.headers["x-github-event"] === "repository"){
         
