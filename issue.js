@@ -26,7 +26,6 @@ var openDeleteIssue = (request, issuesRepo, org) => {
             repo: `${issuesRepo}`,
             title: `${request.body.repository.full_name} has been deleted`,
             body: `This is an auto-generated ticket to track the deletion of repository ${request.body.repository.full_name} by user ${request.body.sender.login}.  @kkwentus Please review`,
-            assignee: 'kkwentus',
             labels: ['admin review']
       },
         (error, results) => {
